@@ -1,23 +1,28 @@
 import logo from './logo.svg';
 import './App.css';
+import { List } from './components/list';
+import { List2 } from './components/list2';
+import { NewList } from './components/newList/newList';
+import { useState } from 'react';
 
 function App() {
+  const [pros, setPros]=useState([
+    {name:'name1' ,id:1}
+  ])
+  const [cons, setCons]=useState([
+    {name:'cons2',id:2}
+  ])
+
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className='Should-I-Eat-at-McDonalds'>Should I  Eat  at McDonalds?</div>
+          <div className='lists'> 
+              <NewList title ={"pros"} list={pros} onChange={setPros}/>
+              <NewList title ={"cons"} list={cons} onChange={setCons}/>
+
+          </div>
+          
     </div>
   );
 }
